@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="株式会社アート・ファクトリー — 東京を拠点に映像・音声コンテンツ制作とソフトウェア開発を行う。Art Factory Co., Ltd. — Production studio and software lab based in Tokyo.">
+  <title>Art Factory Co., Ltd. / 株式会社アート・ファクトリー</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #f8f6f2;
+      --color-text: #1a1a1a;
+      --color-muted: #6b6b6b;
+      --color-accent: #7a1a1a;
+      --color-line: #d4cfc6;
+      --color-surface: rgba(0, 0, 0, 0.025);
+
+      --font-display: 'Cormorant Garamond', 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+      --font-jp-display: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+      --space-xs: 0.5rem;
+      --space-s: 1rem;
+      --space-m: 2rem;
+      --space-l: 4rem;
+      --space-xl: 6rem;
+
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+      --text-small: 0.875rem;
+      --text-eyebrow: 0.8125rem;
+      --text-h1: clamp(2.25rem, 1rem + 4.5vw, 4.5rem);
+      --text-h2: clamp(1.375rem, 1rem + 1vw, 1.75rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-m);
+    }
+
+    /* Hero */
+    .hero {
+      padding-bottom: var(--space-l);
+      margin-bottom: var(--space-l);
+      border-bottom: 1px solid var(--color-line);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-muted);
+      margin-bottom: var(--space-m);
+    }
+
+    .hero h1 {
+      font-family: var(--font-jp-display);
+      font-weight: 500;
+      font-size: var(--text-h1);
+      line-height: 1.15;
+      letter-spacing: -0.005em;
+      margin-bottom: var(--space-m);
+    }
+
+    .tagline {
+      max-width: 42ch;
+      color: var(--color-text);
+    }
+
+    .tagline-en {
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-bottom: var(--space-xs);
+      letter-spacing: 0.005em;
+    }
+
+    .tagline-jp {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: var(--space-l);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--text-h2);
+      font-style: italic;
+      color: var(--color-accent);
+      margin-bottom: var(--space-m);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75em;
+    }
+
+    h2 .h2-jp {
+      font-family: var(--font-jp-display);
+      font-style: normal;
+      font-size: 0.7em;
+      color: var(--color-muted);
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+
+    /* About dl */
+    dl {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: var(--space-m) var(--space-m);
+    }
+
+    dt {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--color-muted);
+      font-size: 1rem;
+      line-height: 1.3;
+      padding-top: 0.1rem;
+    }
+
+    dt .dt-jp {
+      display: block;
+      font-family: var(--font-jp-display);
+      font-style: normal;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 0.3rem;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+
+    dd {
+      line-height: 1.6;
+    }
+
+    dd .en {
+      display: block;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
+      font-style: italic;
+      font-family: var(--font-display);
+      letter-spacing: 0.005em;
+    }
+
+    /* Business */
+    .business-list {
+      display: grid;
+      gap: var(--space-m);
+      list-style: none;
+    }
+
+    .business-list li {
+      padding-left: var(--space-s);
+      border-left: 2px solid var(--color-line);
+    }
+
+    .business-list li strong {
+      display: block;
+      font-family: var(--font-jp-display);
+      font-weight: 500;
+      font-size: 1.0625rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .business-list li .en {
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Products */
+    .product {
+      padding: var(--space-m);
+      background: var(--color-surface);
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .product h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
+    }
+
+    .product p {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .product .en {
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    /* Contact */
+    .contact-link {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 0.08em;
+      letter-spacing: 0.005em;
+      transition: opacity 0.2s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.65;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-m);
+      border-top: 1px solid var(--color-line);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-small);
+      color: var(--color-muted);
+      text-align: center;
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      main {
+        padding: var(--space-l) var(--space-s);
+      }
+
+      .hero {
+        padding-bottom: var(--space-m);
+        margin-bottom: var(--space-m);
+      }
+
+      dl {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+
+      dt {
+        margin-top: var(--space-s);
+        padding-top: 0;
+      }
+
+      dt:first-of-type {
+        margin-top: 0;
+      }
+
+      h2 {
+        flex-direction: column;
+        gap: 0.25rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Art Factory Co., Ltd.</p>
+      <h1>株式会社<br>アート・ファクトリー</h1>
+      <p class="tagline">
+        <span class="tagline-en">Production studio &amp; software lab in Tokyo.</span>
+        <span class="tagline-jp">東京を拠点に、映像・音声コンテンツ制作とソフトウェア開発を行っています。</span>
+      </p>
+    </header>
+
+    <section>
+      <h2>About <span class="h2-jp">会社概要</span></h2>
+      <dl>
+        <dt>Company<span class="dt-jp">商号</span></dt>
+        <dd>
+          株式会社アート・ファクトリー
+          <span class="en">Art Factory Co., Ltd.</span>
+        </dd>
+
+        <dt>Founded<span class="dt-jp">設立</span></dt>
+        <dd>
+          2015年7月27日
+          <span class="en">July 27, 2015</span>
+        </dd>
+
+        <dt>Representative<span class="dt-jp">代表者</span></dt>
+        <dd>
+          代表取締役 鈴木 ツカヤ
+          <span class="en">Tsukaya Suzuki, CEO</span>
+        </dd>
+
+        <dt>Address<span class="dt-jp">所在地</span></dt>
+        <dd>
+          〒113-0033<br>
+          東京都文京区本郷一丁目32番3号
+          <span class="en">1-32-3 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan</span>
+        </dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Business <span class="h2-jp">事業内容</span></h2>
+      <ul class="business-list">
+        <li>
+          <strong>映像・音声コンテンツ制作</strong>
+          <span class="en">Film, video, and audio content production</span>
+        </li>
+        <li>
+          <strong>音声・映像ソフトウェアの企画・開発</strong>
+          <span class="en">Audio/visual software planning and development</span>
+        </li>
+        <li>
+          <strong>音楽・映像作品の原盤制作</strong>
+          <span class="en">Music and video master recording production</span>
+        </li>
+        <li>
+          <strong>広告制作・コンサルティング</strong>
+          <span class="en">Advertising production and consulting</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Products <span class="h2-jp">製品</span></h2>
+      <div class="product">
+        <h3>Hoparoma</h3>
+        <p>
+          クラフトビール醸造者のためのホップ香り予測アプリ。iOS向け。
+          <span class="en">Hop aroma prediction for craft brewers. For iOS.</span>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact <span class="h2-jp">お問い合わせ</span></h2>
+      <p>
+        <a class="contact-link" href="mailto:info@artfactory.co.jp">info@artfactory.co.jp</a>
+      </p>
+    </section>
+
+    <footer>
+      &copy; 2026 Art Factory Co., Ltd.
+    </footer>
+  </main>
+</body>
+</html>
